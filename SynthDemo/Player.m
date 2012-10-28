@@ -29,13 +29,11 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
                 outputValue = [player.osc get] * 32767.0f;
                 // outputValue = [player->filter get:outputValue];
                 
-                // guard
+                // volume + guard
+                outputValue *= player.volume;
                 if(outputValue > 32767) outputValue = 32767;
                 else if(outputValue < -32768) outputValue = -32768;
                 
-                // volume
-                outputValue *= player.volume;
-
                 // output
                 coreAudioBuffer[i] = outputValue;
                 coreAudioBuffer[i+1] = coreAudioBuffer[i];
@@ -130,13 +128,7 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
 {
     AudioQueueStop(queue,true);
 	AudioQueueDispose(queue, true);
-    
-    /*
-    [ampADSR dealloc];
-    [filter dealloc];
-    [osc release];
-    [super dealloc];
-     */
+
 }
 
 
@@ -162,15 +154,14 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
 }
 
 // オシレータの変更
-- (void)changeOscillator:(id<Generator>)_gen
+- (void)changeGenerator:(id<Generator>)_gen
 {
     bool b = mPlaying;
     if(b) mPlaying = NO;
     
-    [osc changeOscillator:_gen];
+    [osc changeGenerator:_gen];
     
     if(b) mPlaying = YES;
 }
-
 
 @end

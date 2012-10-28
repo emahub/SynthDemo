@@ -19,9 +19,9 @@
 }
 
 -(id)initWithGen:(id<Generator>)_gen ADSR:_ampADSR Filter:_filter;
--(void)dealloc;
 -(float)get; // -1.0fから1.0fの間で返す
 -(void)setFreq:(float)_value;
-- (void)changeOscillator:(id<Generator>)_gen;
+-(void)changeGenerator:(id<Generator>)_gen;
+-(void)oscNoteOn:(float)_freq;
 
 @end

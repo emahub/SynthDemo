@@ -31,7 +31,8 @@
 
 -(id)init;
 -(float)get;    // 0.0 ~ 1.0の間
+-(void)noteOn;
 -(void)noteOff;
--(float)getValueOnLineX:(int)_x Y1:(int)_y1 Y2:(int)_y2 len:(int)_len;
+-(float)getValueOnLineX:(float)_x Y1:(float)_y1 Y2:(float)_y2 len:(float)_len;
 
 @end

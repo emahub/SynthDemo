@@ -53,7 +53,7 @@ AQCallbackStruct in;
 - (id)delegate;
 - (void)play;
 - (void)pause;
-- (void)changeOscillator:(id<Generator>)_osc;
+- (void)changeGenerator:(id<Generator>)_osc;
 
 @end
 

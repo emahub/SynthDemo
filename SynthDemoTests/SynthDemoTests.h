@@ -7,7 +7,16 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "BiquadFilter.h"
+#import "ADSR.h"
+#import "Oscillator.h"
+#import "SineGenerator.h"
 
-@interface SynthDemoTests : SenTestCase
+@interface SynthDemoTests : SenTestCase{
+    BiquadFilter *filter;
+    ADSR *ampADSR;
+    Oscillator *osc;
+
+}
 
 @end

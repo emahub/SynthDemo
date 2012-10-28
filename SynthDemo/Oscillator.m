@@ -24,19 +24,9 @@
     return self;
 }
 
-- (void)dealloc
-{
-    /*
-     [gen release];
-    [ampADSR dealloc];
-    [filter dealloc];
-    [super dealloc];
-     */
-}
-
 - (float)get
 {
-    float outputValue = [gen get]; // * [ampADSR get];
+    float outputValue = [gen get] * [ampADSR get];
     outputValue = [filter get:outputValue];
     outputValue *= velocity;
     
@@ -49,11 +39,17 @@
 }
 
 // ジェネレータの変更
-- (void)changeOscillator:(id<Generator>)_gen
+- (void)changeGenerator:(id<Generator>)_gen
 {
     //[gen release];
     gen = _gen;
 
+}
+
+-(void)oscNoteOn:(float)_freq
+{
+    [gen setFreq:_freq];
+    [ampADSR noteOn];
 }
 
 @end

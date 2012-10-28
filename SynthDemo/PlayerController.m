@@ -28,7 +28,7 @@ MIDIInputProc(const MIDIPacketList *pktlist,
             float freq = [playerController getFreqWithMIDI:packet->data[1]];
             NSLog(@"note on number = %2.2x(%f) / velocity = %2.2x / channel = %2.2x",
                   packet->data[1], freq, packet->data[2], ch);
-            //@[player.osc setFreq:freq];
+            [player.osc oscNoteOn:freq];
         } else if (mes == 0x80 || mes == 0x90) {
             NSLog(@"note off number = %2.2x / velocity = %2.2x / channel = %2.2x",
                   packet->data[1], packet->data[2], ch);
@@ -109,26 +109,31 @@ MIDIInputProc(const MIDIPacketList *pktlist,
     }
 }
 
+- (IBAction)noteOn:(id)sender{
+    [player.osc oscNoteOn:frequencySlider.floatValue];
+    
+}
+
 - (IBAction)setOscillator:(id)sender{
     NSLog(@"setOscillator:%ld, %@\n", ganeratorRadioGroup.selectedRow, [[ganeratorRadioGroup selectedCell] title]);
     
-    id<Generator> osc;
+    id<Generator> gen;
     switch(ganeratorRadioGroup.selectedRow){
         case 1:
-            osc = [[SawtoothGenerator alloc] init];
+            gen = [[SawtoothGenerator alloc] init];
             break;
         case 2:
-            osc = [[SquareGenerator alloc] init];
+            gen = [[SquareGenerator alloc] init];
             break;
         case 3:
-            osc = [[WhitenoiseGenerator alloc] init];
+            gen = [[WhitenoiseGenerator alloc] init];
             break;
         default:
-            osc = [[SineGenerator alloc] init];
+            gen = [[SineGenerator alloc] init];
             break;
     }
     
-    [player changeOscillator:osc];
+    [player changeGenerator:gen];
 }
 
 - (IBAction)setFilter:(id)sender{

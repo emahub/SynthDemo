@@ -39,6 +39,7 @@
 -(id) init;
 -(void)dealloc;
 -(IBAction)play:(id)sender;
+-(IBAction)noteOn:(id)sender;
 -(IBAction)setOscillator:(id)sender;
 -(IBAction)setFilter:(id)sender;
 -(IBAction)setFrequency:(id)sender;

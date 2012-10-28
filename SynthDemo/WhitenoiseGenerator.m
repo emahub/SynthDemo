@@ -25,7 +25,7 @@
 }
 
 -(void) setFreq:(float)_freq{
-    NSLog(@"Whitenoise dont's use freq=%f parameter.", _freq);
+    NSLog(@"Whitenoise don't use freq=%f parameter.", _freq);
 }
 
 @end

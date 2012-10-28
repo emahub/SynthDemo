@@ -17,24 +17,26 @@
     if (self = [super init])
     {
         NSLog(@"ADSR init");
-        attack_time = 44100.0f;
+        attack_time = 44100.0f/8;
         attack_level = 0.0f;
-        decay_time = 44100.0f;
+        decay_time = 44100.0f/16;
         decay_level = 1.0f;
         sustain_time = 44100.0f;
-        sustain_level = 0.7f;
+        sustain_level = 0.5f;
         release_time = 44100.0f;
         release_level = 0.5f;
 
-        time = 0;
-        bFinish = NO;
+        time = attack_time+decay_time+sustain_time+release_time;
+        bFinish = YES;
     }
     
     return self;
 }
 
 -(float)get{
-    time+=0.1f;
+    if(bFinish) return 0.0f;
+    
+    time+=1.0f;
     int t = attack_time + decay_time + sustain_time+release_time;
     if(time > t){
         bFinish = YES;
@@ -56,12 +58,17 @@
 
 }
 
+-(void)noteOn{
+    time = 0;
+    bFinish = NO;
+}
+
 -(void)noteOff{
     release_level = [self get];
     time = attack_time + decay_time + sustain_time;
 }
 
--(float)getValueOnLineX:(int)_x Y1:(int)_y1 Y2:(int)_y2 len:(int)_len{
-    return (_y2-_y1) * (_x-_len) / _len + _y1;
+-(float)getValueOnLineX:(float)_x Y1:(float)_y1 Y2:(float)_y2 len:(float)_len{
+    return (_y2-_y1) * _x / _len + _y1;
 }
 @end
