@@ -18,6 +18,18 @@
 		85E18DF9163D11C3001DFF48 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E18DD6163D11C3001DFF48 /* Cocoa.framework */; };
 		85E18E01163D11C3001DFF48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85E18DFF163D11C3001DFF48 /* InfoPlist.strings */; };
 		85E18E04163D11C4001DFF48 /* SynthDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E03163D11C4001DFF48 /* SynthDemoTests.m */; };
+		85E18E0F163D11F2001DFF48 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E18E0D163D11F2001DFF48 /* AudioToolbox.framework */; };
+		85E18E10163D11F2001DFF48 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E18E0E163D11F2001DFF48 /* AudioUnit.framework */; };
+		85E18E12163D11FA001DFF48 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E18E11163D11FA001DFF48 /* CoreMIDI.framework */; };
+		85E18E27163D13AF001DFF48 /* ADSR.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E17163D13AF001DFF48 /* ADSR.m */; };
+		85E18E28163D13AF001DFF48 /* BiquadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E19163D13AF001DFF48 /* BiquadFilter.m */; };
+		85E18E29163D13AF001DFF48 /* Oscillator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E1C163D13AF001DFF48 /* Oscillator.m */; };
+		85E18E2A163D13AF001DFF48 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E1E163D13AF001DFF48 /* Player.m */; };
+		85E18E2B163D13AF001DFF48 /* SawtoothGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E20163D13AF001DFF48 /* SawtoothGenerator.m */; };
+		85E18E2C163D13AF001DFF48 /* SineGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E22163D13AF001DFF48 /* SineGenerator.m */; };
+		85E18E2D163D13AF001DFF48 /* SquareGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E24163D13AF001DFF48 /* SquareGenerator.m */; };
+		85E18E2E163D13AF001DFF48 /* WhitenoiseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E26163D13AF001DFF48 /* WhitenoiseGenerator.m */; };
+		85E18E38163D161B001DFF48 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E37163D161B001DFF48 /* PlayerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,28 @@
 		85E18E00163D11C3001DFF48 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		85E18E02163D11C4001DFF48 /* SynthDemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynthDemoTests.h; sourceTree = "<group>"; };
 		85E18E03163D11C4001DFF48 /* SynthDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SynthDemoTests.m; sourceTree = "<group>"; };
+		85E18E0D163D11F2001DFF48 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		85E18E0E163D11F2001DFF48 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		85E18E11163D11FA001DFF48 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		85E18E16163D13AF001DFF48 /* ADSR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSR.h; sourceTree = "<group>"; };
+		85E18E17163D13AF001DFF48 /* ADSR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSR.m; sourceTree = "<group>"; };
+		85E18E18163D13AF001DFF48 /* BiquadFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiquadFilter.h; sourceTree = "<group>"; };
+		85E18E19163D13AF001DFF48 /* BiquadFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiquadFilter.m; sourceTree = "<group>"; };
+		85E18E1A163D13AF001DFF48 /* Generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generator.h; sourceTree = "<group>"; };
+		85E18E1B163D13AF001DFF48 /* Oscillator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oscillator.h; sourceTree = "<group>"; };
+		85E18E1C163D13AF001DFF48 /* Oscillator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oscillator.m; sourceTree = "<group>"; };
+		85E18E1D163D13AF001DFF48 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		85E18E1E163D13AF001DFF48 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		85E18E1F163D13AF001DFF48 /* SawtoothGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SawtoothGenerator.h; sourceTree = "<group>"; };
+		85E18E20163D13AF001DFF48 /* SawtoothGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SawtoothGenerator.m; sourceTree = "<group>"; };
+		85E18E21163D13AF001DFF48 /* SineGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineGenerator.h; sourceTree = "<group>"; };
+		85E18E22163D13AF001DFF48 /* SineGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineGenerator.m; sourceTree = "<group>"; };
+		85E18E23163D13AF001DFF48 /* SquareGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareGenerator.h; sourceTree = "<group>"; };
+		85E18E24163D13AF001DFF48 /* SquareGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareGenerator.m; sourceTree = "<group>"; };
+		85E18E25163D13AF001DFF48 /* WhitenoiseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhitenoiseGenerator.h; sourceTree = "<group>"; };
+		85E18E26163D13AF001DFF48 /* WhitenoiseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhitenoiseGenerator.m; sourceTree = "<group>"; };
+		85E18E36163D161B001DFF48 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		85E18E37163D161B001DFF48 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E18E12163D11FA001DFF48 /* CoreMIDI.framework in Frameworks */,
+				85E18E0F163D11F2001DFF48 /* AudioToolbox.framework in Frameworks */,
+				85E18E10163D11F2001DFF48 /* AudioUnit.framework in Frameworks */,
 				85E18DD7163D11C3001DFF48 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +133,9 @@
 		85E18DD5163D11C3001DFF48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85E18E11163D11FA001DFF48 /* CoreMIDI.framework */,
+				85E18E0D163D11F2001DFF48 /* AudioToolbox.framework */,
+				85E18E0E163D11F2001DFF48 /* AudioUnit.framework */,
 				85E18DD6163D11C3001DFF48 /* Cocoa.framework */,
 				85E18DF7163D11C3001DFF48 /* SenTestingKit.framework */,
 				85E18DD8163D11C3001DFF48 /* Other Frameworks */,
@@ -116,6 +156,25 @@
 		85E18DDC163D11C3001DFF48 /* SynthDemo */ = {
 			isa = PBXGroup;
 			children = (
+				85E18E36163D161B001DFF48 /* PlayerController.h */,
+				85E18E37163D161B001DFF48 /* PlayerController.m */,
+				85E18E16163D13AF001DFF48 /* ADSR.h */,
+				85E18E17163D13AF001DFF48 /* ADSR.m */,
+				85E18E18163D13AF001DFF48 /* BiquadFilter.h */,
+				85E18E19163D13AF001DFF48 /* BiquadFilter.m */,
+				85E18E1A163D13AF001DFF48 /* Generator.h */,
+				85E18E1B163D13AF001DFF48 /* Oscillator.h */,
+				85E18E1C163D13AF001DFF48 /* Oscillator.m */,
+				85E18E1D163D13AF001DFF48 /* Player.h */,
+				85E18E1E163D13AF001DFF48 /* Player.m */,
+				85E18E1F163D13AF001DFF48 /* SawtoothGenerator.h */,
+				85E18E20163D13AF001DFF48 /* SawtoothGenerator.m */,
+				85E18E21163D13AF001DFF48 /* SineGenerator.h */,
+				85E18E22163D13AF001DFF48 /* SineGenerator.m */,
+				85E18E23163D13AF001DFF48 /* SquareGenerator.h */,
+				85E18E24163D13AF001DFF48 /* SquareGenerator.m */,
+				85E18E25163D13AF001DFF48 /* WhitenoiseGenerator.h */,
+				85E18E26163D13AF001DFF48 /* WhitenoiseGenerator.m */,
 				85E18DE8163D11C3001DFF48 /* AppDelegate.h */,
 				85E18DE9163D11C3001DFF48 /* AppDelegate.m */,
 				85E18DEB163D11C3001DFF48 /* MainMenu.xib */,
@@ -267,6 +326,15 @@
 				85E18DE3163D11C3001DFF48 /* main.m in Sources */,
 				85E18DEA163D11C3001DFF48 /* AppDelegate.m in Sources */,
 				85E18DF0163D11C3001DFF48 /* SynthDemo.xcdatamodeld in Sources */,
+				85E18E27163D13AF001DFF48 /* ADSR.m in Sources */,
+				85E18E28163D13AF001DFF48 /* BiquadFilter.m in Sources */,
+				85E18E29163D13AF001DFF48 /* Oscillator.m in Sources */,
+				85E18E2A163D13AF001DFF48 /* Player.m in Sources */,
+				85E18E2B163D13AF001DFF48 /* SawtoothGenerator.m in Sources */,
+				85E18E2C163D13AF001DFF48 /* SineGenerator.m in Sources */,
+				85E18E2D163D13AF001DFF48 /* SquareGenerator.m in Sources */,
+				85E18E2E163D13AF001DFF48 /* WhitenoiseGenerator.m in Sources */,
+				85E18E38163D161B001DFF48 /* PlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
