@@ -9,8 +9,39 @@
 #import "BiquadFilter.h"
 
 @implementation BiquadFilter
+@synthesize type, cutoff, q, dBGain;
 
+- (id)init{
+    self = [super init];
+    type = 0;
+    cutoff = 440.0f;
+    q = 1.0f;
+    dBGain = 0.0f;
+    
+    return self;
+}
 - (float) get:(float)_x{
+    switch(type){
+        case FILTER_TYPE_LPF:
+            [self setLPF_f0:cutoff Q:q];
+            break;
+        case FILTER_TYPE_HPF:
+            [self setHPF_f0:cutoff Q:q];
+            break;
+        case FILTER_TYPE_BPF:
+            [self setBPF_f0:cutoff Q:q];
+            break;
+        case FILTER_TYPE_PEAKINGEQ:
+            [self setpeakingEQ_f0:cutoff Q:q dBGain:dBGain];
+            break;
+        case FILTER_TYPE_LOWSHELF:
+            [self setlowShelf_f0:cutoff Q:q dBGain:dBGain];
+            break;
+        case FILTER_TYPE_HIGHSHELF:
+            [self sethighShelf_f0:cutoff Q:q dBGain:dBGain];
+            break;
+    }
+    
     float ret = (b0/a0)*_x + (b1/a0)*x1 + (b2/a0)*x2 - (a1/a0)*y1 - (a2/a0)*y2;
     x2 = x1;
     x1 = _x;

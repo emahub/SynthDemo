@@ -15,6 +15,7 @@
     if (self = [super init])
     {
         NSLog(@"WhitenoiseGeneratorr init");
+        amplitude = 1.0f;
     }
     
     return self;
@@ -25,7 +26,7 @@
 }
 
 -(void) setFreq:(float)_freq{
-    NSLog(@"Whitenoise don't use freq=%f parameter.", _freq);
+    //NSLog(@"Whitenoise don't use freq=%f parameter.", _freq);
 }
 
 -(void) setAmplitude:(float)_amplitude{

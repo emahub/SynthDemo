@@ -65,11 +65,17 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
     ampADSR = [[ADSR alloc] init];
     
     pitchLFO = [[SineGenerator alloc] init];
-    [pitchLFO setFreq:10.0f];
-    [pitchLFO setAmplitude:0.5f];
+    [pitchLFO setFreq:0.0f];
+    [pitchLFO setAmplitude:0.0f];
+    amplitudeLFO = [[SineGenerator alloc] init];
+    [amplitudeLFO setFreq:0.0f];
+    [amplitudeLFO setAmplitude:0.0f];
+    filterLFO = [[SineGenerator alloc] init];
+    [filterLFO setFreq:0.0f];
+    [filterLFO setAmplitude:0.0f];
     
     osc = [[Oscillator alloc] initWithGen:[[SineGenerator alloc] init]
-                ADSR:ampADSR Filter:filter PitchLFO:pitchLFO];
+                    ADSR:ampADSR Filter:filter PitchLFO:pitchLFO AmplitudeLFO:amplitudeLFO FilterLFO:filterLFO];
     
     mDelegate = delegate;
     mPlaying = NO;
@@ -134,10 +140,7 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
 {
     AudioQueueStop(queue,true);
 	AudioQueueDispose(queue, true);
-
 }
-
-
 
 // delegateオブジェクトの取得
 - (id)delegate

@@ -8,14 +8,23 @@
 
 #import <Foundation/Foundation.h>
 #import "math.h"
+#import "define.h"
 
 #define SAMPLING_FREQ 44100.0f
 
 @interface BiquadFilter : NSObject{
+    int type;
+    float cutoff, q, dBGain;
     float a0, a1, a2, b0, b1, b2;
     float x1, x2, y1, y2;   // x1 = x[n-1], x2 = x[n-2], y1 = y[n-1], y2 = y[n-2]
 }
 
+@property(readwrite) int type;
+@property(readwrite) float cutoff;
+@property(readwrite) float q;
+@property(readwrite) float dBGain;
+
+-(id)init;
 - (float) get:(float)_x;
 - (void) setLPF_f0:(float)_f0 Q:(float)_Q;
 - (void) setHPF_f0:(float)_f0 Q:(float)_Q;

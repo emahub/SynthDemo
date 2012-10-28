@@ -41,6 +41,8 @@ AQCallbackStruct in;
     ADSR *ampADSR;
     BiquadFilter *filter;
     id<Generator> pitchLFO;
+    id<Generator> amplitudeLFO;
+    id<Generator> filterLFO;
 }
 
 @property(readwrite) BOOL mPlaying;

@@ -111,10 +111,6 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 - (IBAction)noteOn:(id)sender{
-    NSLog(@"%.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f", player.ampADSR.attack_level, player.ampADSR.decay_level,
-          player.ampADSR.sustain_level, player.ampADSR.release_level, player.ampADSR.attack_time,
-          player.ampADSR.decay_time, player.ampADSR.sustain_time, player.ampADSR.release_time);
-    
     if(noteOnButton.intValue == 1)
         [player.osc oscNoteOn:frequencySlider.floatValue];
     else
@@ -144,26 +140,9 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 - (IBAction)setFilter:(id)sender{
-    switch(filterRadioGroup.selectedRow){
-        case 0:
-            [player.filter setLPF_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue];
-            break;
-        case 1:
-            [player.filter setHPF_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue];
-            break;
-        case 2:
-            [player.filter setBPF_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue];
-            break;
-        case 3:
-            [player.filter setpeakingEQ_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue dBGain:filterdBGainSlider.floatValue];
-            break;
-        case 4:
-            [player.filter setlowShelf_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue dBGain:filterdBGainSlider.floatValue];
-            break;
-        case 5:
-            [player.filter sethighShelf_f0:filterFrequencySlider.floatValue Q:filterQSlider.floatValue dBGain:filterdBGainSlider.floatValue];
-            break;
-    }
+
+    [player.osc setFilter_type:(int)filterRadioGroup.selectedRow cutoff:filterFrequencySlider.floatValue
+                             Q:filterQSlider.floatValue  dBGain:filterdBGainSlider.floatValue];
 }
 
 -(IBAction)setFrequency:(id)sender{
@@ -191,9 +170,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 -(IBAction)setAmplitudeLFO:(id)sender{
+    [player.osc setAmplitudeLFO_freq:amplitudeLFOFrequencySlider.floatValue amp:amplitudeLFOAmplitudeSlider.floatValue];
 }
 -(IBAction)setFilterLFO:(id)sender{
-    
+    [player.osc setFilterLFO_freq:filterLFOFrequencySlider.floatValue amp:filterLFOAmplitudeSlider.floatValue];
 }
 
 // midiノート番号から周波数を求める
