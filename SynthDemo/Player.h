@@ -40,6 +40,7 @@ AQCallbackStruct in;
     Oscillator *osc;
     ADSR *ampADSR;
     BiquadFilter *filter;
+    id<Generator> pitchLFO;
 }
 
 @property(readwrite) BOOL mPlaying;
@@ -47,6 +48,7 @@ AQCallbackStruct in;
 @property(retain) id osc;
 @property(retain) BiquadFilter *filter;
 @property(retain) ADSR *ampADSR;
+@property(retain) id pitchLFO;
 
 - (id)init:(id)delegate;
 - (void)dealloc;

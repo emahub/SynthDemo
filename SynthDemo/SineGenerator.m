@@ -17,19 +17,24 @@
         NSLog(@"SineGenerator init");
         radius = 0;
         frequency = 440;
+        amplitude = 1.0f;
     }
     
     return self;
 }
 
 -(float) get{
-    radius += (2.0 * M_PI * frequency) / 44100.0;
+    radius += (2.0 * M_PI * frequency) / SAMPLING_FREQ;
     if(radius >= M_PI*2) radius -= M_PI*2;
-    return sin(radius);
+    return sin(radius) * amplitude;
 }
 
 -(void) setFreq:(float)_freq{
     frequency = _freq;
+}
+
+-(void) setAmplitude:(float)_amplitude{
+    amplitude = _amplitude;
 }
 
 @end

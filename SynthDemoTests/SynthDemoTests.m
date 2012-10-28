@@ -20,7 +20,7 @@
     
     ampADSR = [[ADSR alloc] init];
     
-    osc = [[Oscillator alloc] initWithGen:[[SineGenerator alloc] init] ADSR:ampADSR Filter:filter];
+    osc = [[Oscillator alloc] initWithGen:[[SineGenerator alloc] init] ADSR:ampADSR Filter:filter PitchLFO:[[SineGenerator alloc] init]];
 }
 
 - (void)tearDown
@@ -29,15 +29,13 @@
     
     [super tearDown];
 }
+@end
 
-- (void)testExample
-{
-    // STFail(@"Unit tests are not implemented yet in SynthDemoTests");
-}
-
+/*
 - (void)testAmpADSRGetValueOnLinx
 {
     STAssertEqualObjects([ampADSR getValueOnLineX:5 Y1:0.0f Y2:10.0f len:20], 2.5f, @"getValueOnLineX");
 }
 
 @end
+*/

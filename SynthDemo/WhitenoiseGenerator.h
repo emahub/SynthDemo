@@ -10,9 +10,10 @@
 #import "Generator.h"
 
 @interface WhitenoiseGenerator : NSObject<Generator>{
-    
+    float amplitude;
 }
 -(id) init;
 -(float) get;
 -(void) setFreq:(float)_freq;
+-(void) setAmplitude:(float)_amplitude;
 @end

@@ -21,11 +21,15 @@
 }
 
 -(float) get{
-    return (float) random()/RAND_MAX;
+    return amplitude * (float) random()/RAND_MAX;
 }
 
 -(void) setFreq:(float)_freq{
     NSLog(@"Whitenoise don't use freq=%f parameter.", _freq);
+}
+
+-(void) setAmplitude:(float)_amplitude{
+    amplitude = _amplitude;
 }
 
 @end

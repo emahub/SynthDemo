@@ -14,16 +14,20 @@
 @interface Oscillator : NSObject{
     id<Generator> gen;
     ADSR *ampADSR;
-    float velocity;
     BiquadFilter *filter;
     
-    float nowFreq;
+    float freq;
+    id<Generator> pitchLFO;
+    
+    
+    float nowFreq;  // 送信された再生ピッチ
 }
 
--(id)initWithGen:(id<Generator>)_gen ADSR:_ampADSR Filter:_filter;
+- (id) initWithGen:(id<Generator>)_gen ADSR:_ampADSR Filter:_filter PitchLFO:_pitchLFO;
 -(float)get; // -1.0fから1.0fの間で返す
--(void)setFreq:(float)_value;
 -(void)changeGenerator:(id<Generator>)_gen;
 -(void)oscNoteOn:(float)_freq;
 -(void)oscNoteOff:(float)_freq;
+-(void)setFreq:(float)_freq;
+-(void)setPitchLFO_freq:(float)_freq amp:(float)_amp;
 @end

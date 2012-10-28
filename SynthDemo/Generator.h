@@ -11,4 +11,5 @@
 @protocol Generator <NSObject>
 -(float) get;   // -1.0 ~ 1.0の間で返す
 -(void) setFreq:(float)_freq;
+-(void) setAmplitude:(float)_amplitude;
 @end

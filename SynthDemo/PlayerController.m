@@ -27,10 +27,12 @@ MIDIInputProc(const MIDIPacketList *pktlist,
         if ((mes == 0x90) && (packet->data[2] != 0)) {
             float freq = [playerController getFreqWithMIDI:packet->data[1]];
             NSLog(@"note on number = %2.2x(%f) / vel = %2.2x / ch = %2.2x", packet->data[1], freq, packet->data[2], ch);
+
             [player.osc oscNoteOn:freq];
         } else if (mes == 0x80 || mes == 0x90) {
             float freq = [playerController getFreqWithMIDI:packet->data[1]];
             NSLog(@"note off number = %2.2x / vel = %2.2x / ch = %2.2x", packet->data[1], packet->data[2], ch);
+
             [player.osc oscNoteOff:freq];
         } else if (mes == 0xB0) {
             NSLog(@"cc number = %2.2x / data = %2.2x / ch = %2.2x",
@@ -179,6 +181,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
     player.ampADSR.sustain_time = ampADSRSustainTime.floatValue * SAMPLING_FREQ;
     player.ampADSR.release_time = ampADSRReleaseTime.floatValue * SAMPLING_FREQ;
     [ampADSRNView setADSR:player.ampADSR];
+}
+
+-(IBAction)setPitchLFO:(id)sender{
+    [player.osc setPitchLFO_freq:pitchLFOFrequencySlider.floatValue amp:pitchLFOAmplitudeSlider.floatValue];
 }
 
 // midiノート番号から周波数を求める

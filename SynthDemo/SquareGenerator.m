@@ -17,19 +17,24 @@
         NSLog(@"SawtoothGenerator init");
         radius = 0;
         frequency = 440;
+        amplitude = 1.0f;
     }
     
     return self;
 }
 
 -(float) get{
-    radius += (2.0 * M_PI * frequency) / 44100.0;
+    radius += (2.0 * M_PI * frequency) / SAMPLING_FREQ;
     if(radius >= M_PI*2) radius -= M_PI*2;
-    return radius > M_PI ? 1.0f : -1.0f;
+    return radius > M_PI ? amplitude : -amplitude;
 }
 
 -(void) setFreq:(float)_freq{
     frequency = _freq;
+}
+
+-(void) setAmplitude:(float)_amplitude{
+    amplitude = _amplitude;
 }
 
 @end

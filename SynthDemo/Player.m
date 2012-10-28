@@ -9,7 +9,7 @@
 #import "Player.h"
 
 @implementation Player
-@synthesize volume, mPlaying, osc, filter, ampADSR;
+@synthesize volume, mPlaying, osc, filter, ampADSR, pitchLFO;
 
 
 static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef outQB) {
@@ -64,7 +64,12 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
     
     ampADSR = [[ADSR alloc] init];
     
-    osc = [[Oscillator alloc] initWithGen:[[SineGenerator alloc] init] ADSR:ampADSR Filter:filter];
+    pitchLFO = [[SineGenerator alloc] init];
+    [pitchLFO setFreq:10.0f];
+    [pitchLFO setAmplitude:0.5f];
+    
+    osc = [[Oscillator alloc] initWithGen:[[SineGenerator alloc] init]
+                ADSR:ampADSR Filter:filter PitchLFO:pitchLFO];
     
     mDelegate = delegate;
     mPlaying = NO;

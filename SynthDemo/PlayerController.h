@@ -31,6 +31,9 @@
     
     IBOutlet NSSlider *frequencySlider;
     
+    IBOutlet NSSlider *pitchLFOFrequencySlider;
+    IBOutlet NSSlider *pitchLFOAmplitudeSlider;
+    
     IBOutlet NSMatrix *filterRadioGroup;
     IBOutlet NSSlider *filterFrequencySlider;
     IBOutlet NSSlider *filterQSlider;
@@ -56,6 +59,7 @@
 -(IBAction)setFrequency:(id)sender;
 -(IBAction)setVolume:(id)sender;
 -(IBAction)updateAmpADSRView:(id)sender;
+-(IBAction)setPitchLFO:(id)sender;
 - (double)getFreqWithMIDI:(int)_note;
 
 @end
