@@ -41,16 +41,16 @@
     CGContextMoveToPoint(context,0,halfHight);
     
     
-    float t = 0;
+    float t = 0; int HABA = 5;
     CGContextAddLineToPoint(context, 0, adsr.attack_level * dirtyRect.size.height*0.9f);
     t+=adsr.attack_time;
-    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ, adsr.decay_level * dirtyRect.size.height*0.9f);
+    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ+HABA, adsr.decay_level * dirtyRect.size.height*0.9f);
     t+=adsr.decay_time;
-    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ, adsr.sustain_level * dirtyRect.size.height*0.9f);
+    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ+HABA*2, adsr.sustain_level * dirtyRect.size.height*0.9f);
     t+=adsr.sustain_time;
-    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ, adsr.release_level * dirtyRect.size.height*0.9f);
+    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ+HABA*3, adsr.release_level * dirtyRect.size.height*0.9f);
     t+=adsr.release_time;
-    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ, 0);
+    CGContextAddLineToPoint(context, t*20.0f/SAMPLING_FREQ+HABA*4, 0);
     
     /*
     float frequency = 440.0f;

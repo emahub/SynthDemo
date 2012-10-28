@@ -110,8 +110,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 - (IBAction)noteOn:(id)sender{
-    [player.osc oscNoteOn:frequencySlider.floatValue];
-    
+    if(noteOnButton.intValue == 1)
+        [player.osc oscNoteOn:frequencySlider.floatValue];
+    else
+        [player.osc oscNoteOff:frequencySlider.floatValue];
 }
 
 - (IBAction)setOscillator:(id)sender{

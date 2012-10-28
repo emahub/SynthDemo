@@ -28,6 +28,7 @@
 
         time = attack_time+decay_time+sustain_time+release_time;
         bFinish = YES;
+        bNoteOn = NO;
     }
     
     return self;
@@ -43,9 +44,13 @@
         return 0.0f;
     }
     t -= release_time;
-    if(time > t)
-        return [self getValueOnLineX:time-t Y1:release_level Y2:0.0f len:release_time];
-    
+    if(time > t){
+        if(bNoteOn && sustain_time == ADSR_MAX_TIME){
+            time--;
+            return release_level;
+        } else
+            return [self getValueOnLineX:time-t Y1:release_level Y2:0.0f len:release_time];
+    }
     t -= sustain_time;
     if(time > t)
         return [self getValueOnLineX:time-t Y1:sustain_level Y2:release_level len:sustain_time];
@@ -61,11 +66,13 @@
 -(void)noteOn{
     time = 0;
     bFinish = NO;
+    bNoteOn = YES;
 }
 
 -(void)noteOff{
     release_level = [self get];
     time = attack_time + decay_time + sustain_time;
+    bNoteOn = NO;
 }
 
 -(float)getValueOnLineX:(float)_x Y1:(float)_y1 Y2:(float)_y2 len:(float)_len{

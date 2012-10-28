@@ -15,6 +15,7 @@
     
     int time;
     bool bFinish;
+    bool bNoteOn;
 }
 
 @property(readwrite) float attack_time;

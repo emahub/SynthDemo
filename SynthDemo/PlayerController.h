@@ -27,6 +27,7 @@
     IBOutlet NSSlider *volumeSlider;
     
     IBOutlet NSMatrix *ganeratorRadioGroup;
+    IBOutlet NSButton *noteOnButton;
     
     IBOutlet NSSlider *frequencySlider;
     
