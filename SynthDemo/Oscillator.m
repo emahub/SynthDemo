@@ -48,8 +48,13 @@
 
 -(void)oscNoteOn:(float)_freq
 {
+    nowFreq = _freq;
     [gen setFreq:_freq];
     [ampADSR noteOn];
 }
 
+-(void)oscNoteOff:(float)_freq
+{
+    if(nowFreq == _freq) [ampADSR noteOff];
+}
 @end

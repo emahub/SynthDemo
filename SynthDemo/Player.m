@@ -9,7 +9,7 @@
 #import "Player.h"
 
 @implementation Player
-@synthesize volume, mPlaying, osc, filter;
+@synthesize volume, mPlaying, osc, filter, ampADSR;
 
 
 static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef outQB) {
@@ -69,6 +69,7 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
     mDelegate = delegate;
     mPlaying = NO;
     volume = 0.8f;
+    
     
     // AudioUnitの初期化
     NSLog(@"Player Audiounit initialize");

@@ -26,14 +26,14 @@ MIDIInputProc(const MIDIPacketList *pktlist,
         //メッセージの種類に応じてログに表示
         if ((mes == 0x90) && (packet->data[2] != 0)) {
             float freq = [playerController getFreqWithMIDI:packet->data[1]];
-            NSLog(@"note on number = %2.2x(%f) / velocity = %2.2x / channel = %2.2x",
-                  packet->data[1], freq, packet->data[2], ch);
+            NSLog(@"note on number = %2.2x(%f) / vel = %2.2x / ch = %2.2x", packet->data[1], freq, packet->data[2], ch);
             [player.osc oscNoteOn:freq];
         } else if (mes == 0x80 || mes == 0x90) {
-            NSLog(@"note off number = %2.2x / velocity = %2.2x / channel = %2.2x",
-                  packet->data[1], packet->data[2], ch);
+            float freq = [playerController getFreqWithMIDI:packet->data[1]];
+            NSLog(@"note off number = %2.2x / vel = %2.2x / ch = %2.2x", packet->data[1], packet->data[2], ch);
+            [player.osc oscNoteOff:freq];
         } else if (mes == 0xB0) {
-            NSLog(@"cc number = %2.2x / data = %2.2x / channel = %2.2x",
+            NSLog(@"cc number = %2.2x / data = %2.2x / ch = %2.2x",
                   packet->data[1], packet->data[2], ch);
         } /*else {
            NSLog(@"etc");
@@ -83,10 +83,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
                     }
                 }
             }
-            
         }
         
         playerController = self;
+        [self updateAmpADSRView:nil];
     }
     
     return self;
@@ -165,6 +165,18 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 
 -(IBAction)setVolume:(id)sender{
     [player setVolume:volumeSlider.floatValue/100.0f];
+}
+
+-(IBAction)updateAmpADSRView:(id)sender{
+    player.ampADSR.attack_level = ampADSRAttackLevel.floatValue;
+    player.ampADSR.decay_level = ampADSRDecayLevel.floatValue;
+    player.ampADSR.sustain_level = ampADSRSustainLevel.floatValue;
+    player.ampADSR.release_level = ampADSRReleaseLevel.floatValue;
+    player.ampADSR.attack_time = ampADSRAttackTime.floatValue * SAMPLING_FREQ;
+    player.ampADSR.decay_time = ampADSRDecayTime.floatValue * SAMPLING_FREQ;
+    player.ampADSR.sustain_time = ampADSRSustainTime.floatValue * SAMPLING_FREQ;
+    player.ampADSR.release_time = ampADSRReleaseTime.floatValue * SAMPLING_FREQ;
+    [ampADSRNView setADSR:player.ampADSR];
 }
 
 // midiノート番号から周波数を求める

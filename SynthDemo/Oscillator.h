@@ -16,6 +16,8 @@
     ADSR *ampADSR;
     float velocity;
     BiquadFilter *filter;
+    
+    float nowFreq;
 }
 
 -(id)initWithGen:(id<Generator>)_gen ADSR:_ampADSR Filter:_filter;
@@ -23,5 +25,5 @@
 -(void)setFreq:(float)_value;
 -(void)changeGenerator:(id<Generator>)_gen;
 -(void)oscNoteOn:(float)_freq;
-
+-(void)oscNoteOff:(float)_freq;
 @end

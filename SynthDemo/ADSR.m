@@ -17,14 +17,14 @@
     if (self = [super init])
     {
         NSLog(@"ADSR init");
-        attack_time = 44100.0f/8;
+        attack_time = SAMPLING_FREQ * 0.1f;
         attack_level = 0.0f;
-        decay_time = 44100.0f/16;
+        decay_time = SAMPLING_FREQ * 2.0f;
         decay_level = 1.0f;
-        sustain_time = 44100.0f;
-        sustain_level = 0.5f;
-        release_time = 44100.0f;
-        release_level = 0.5f;
+        sustain_time = SAMPLING_FREQ * 2.0f;
+        sustain_level = 1.0f;
+        release_time = SAMPLING_FREQ * 0.1f;
+        release_level = 0.0f;
 
         time = attack_time+decay_time+sustain_time+release_time;
         bFinish = YES;
@@ -36,7 +36,7 @@
 -(float)get{
     if(bFinish) return 0.0f;
     
-    time+=1.0f;
+    time++;
     int t = attack_time + decay_time + sustain_time+release_time;
     if(time > t){
         bFinish = YES;

@@ -46,6 +46,7 @@ AQCallbackStruct in;
 @property(readwrite) float volume;
 @property(retain) id osc;
 @property(retain) BiquadFilter *filter;
+@property(retain) ADSR *ampADSR;
 
 - (id)init:(id)delegate;
 - (void)dealloc;

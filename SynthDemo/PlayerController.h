@@ -15,7 +15,7 @@
 #import "SawtoothGenerator.h"
 #import "SquareGenerator.h"
 #import "WhitenoiseGenerator.h"
-
+#import "ADSRNSView.h"
 
 @class Player;
 
@@ -34,6 +34,16 @@
     IBOutlet NSSlider *filterFrequencySlider;
     IBOutlet NSSlider *filterQSlider;
     IBOutlet NSSlider *filterdBGainSlider;
+    
+    IBOutlet ADSRNSView *ampADSRNView;
+    IBOutlet NSSlider *ampADSRAttackLevel;
+    IBOutlet NSSlider *ampADSRDecayLevel;
+    IBOutlet NSSlider *ampADSRSustainLevel;
+    IBOutlet NSSlider *ampADSRReleaseLevel;
+    IBOutlet NSSlider *ampADSRAttackTime;
+    IBOutlet NSSlider *ampADSRDecayTime;
+    IBOutlet NSSlider *ampADSRSustainTime;
+    IBOutlet NSSlider *ampADSRReleaseTime;
 }
 
 -(id) init;
@@ -44,7 +54,7 @@
 -(IBAction)setFilter:(id)sender;
 -(IBAction)setFrequency:(id)sender;
 -(IBAction)setVolume:(id)sender;
-
+-(IBAction)updateAmpADSRView:(id)sender;
 - (double)getFreqWithMIDI:(int)_note;
 
 @end

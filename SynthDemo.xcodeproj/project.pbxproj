@@ -30,6 +30,7 @@
 		85E18E2D163D13AF001DFF48 /* SquareGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E24163D13AF001DFF48 /* SquareGenerator.m */; };
 		85E18E2E163D13AF001DFF48 /* WhitenoiseGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E26163D13AF001DFF48 /* WhitenoiseGenerator.m */; };
 		85E18E38163D161B001DFF48 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E37163D161B001DFF48 /* PlayerController.m */; };
+		85E18E43163D32DD001DFF48 /* ADSRNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18E42163D32DD001DFF48 /* ADSRNSView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,9 @@
 		85E18E26163D13AF001DFF48 /* WhitenoiseGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhitenoiseGenerator.m; sourceTree = "<group>"; };
 		85E18E36163D161B001DFF48 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		85E18E37163D161B001DFF48 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
+		85E18E41163D32DD001DFF48 /* ADSRNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADSRNSView.h; sourceTree = "<group>"; };
+		85E18E42163D32DD001DFF48 /* ADSRNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADSRNSView.m; sourceTree = "<group>"; };
+		85E18E44163D387A001DFF48 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,9 @@
 				85E18DEB163D11C3001DFF48 /* MainMenu.xib */,
 				85E18DEE163D11C3001DFF48 /* SynthDemo.xcdatamodeld */,
 				85E18DDD163D11C3001DFF48 /* Supporting Files */,
+				85E18E41163D32DD001DFF48 /* ADSRNSView.h */,
+				85E18E42163D32DD001DFF48 /* ADSRNSView.m */,
+				85E18E44163D387A001DFF48 /* define.h */,
 			);
 			path = SynthDemo;
 			sourceTree = "<group>";
@@ -335,6 +342,7 @@
 				85E18E2D163D13AF001DFF48 /* SquareGenerator.m in Sources */,
 				85E18E2E163D13AF001DFF48 /* WhitenoiseGenerator.m in Sources */,
 				85E18E38163D161B001DFF48 /* PlayerController.m in Sources */,
+				85E18E43163D32DD001DFF48 /* ADSRNSView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

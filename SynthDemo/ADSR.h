@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define SPEED 0.1f;
+#import "define.h"
 
 @interface ADSR : NSObject{
     float attack_time, attack_level, decay_time, decay_level,
     sustain_time, sustain_level, release_time, release_level;
     
-    float time;
+    int time;
     bool bFinish;
 }
 
@@ -26,7 +25,7 @@
 @property(readwrite) float sustain_level;
 @property(readwrite) float release_time;
 @property(readwrite) float release_level;
-@property(readwrite) float time;
+@property(readwrite) int time;
 @property(readwrite) bool bFinish;
 
 -(id)init;
