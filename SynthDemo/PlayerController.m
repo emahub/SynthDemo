@@ -88,7 +88,6 @@ MIDIInputProc(const MIDIPacketList *pktlist,
         }
         
         playerController = self;
-        [self updateAmpADSRView:nil];
     }
     
     return self;
@@ -112,6 +111,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 - (IBAction)noteOn:(id)sender{
+    NSLog(@"%.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f", player.ampADSR.attack_level, player.ampADSR.decay_level,
+          player.ampADSR.sustain_level, player.ampADSR.release_level, player.ampADSR.attack_time,
+          player.ampADSR.decay_time, player.ampADSR.sustain_time, player.ampADSR.release_time);
+    
     if(noteOnButton.intValue == 1)
         [player.osc oscNoteOn:frequencySlider.floatValue];
     else
@@ -179,12 +182,18 @@ MIDIInputProc(const MIDIPacketList *pktlist,
     player.ampADSR.attack_time = ampADSRAttackTime.floatValue * SAMPLING_FREQ;
     player.ampADSR.decay_time = ampADSRDecayTime.floatValue * SAMPLING_FREQ;
     player.ampADSR.sustain_time = ampADSRSustainTime.floatValue * SAMPLING_FREQ;
-    player.ampADSR.release_time = ampADSRReleaseTime.floatValue * SAMPLING_FREQ;
+    player.ampADSR.release_time = ampADSRReleaseTime.floatValue * SAMPLING_FREQ;    
     [ampADSRNView setADSR:player.ampADSR];
 }
 
 -(IBAction)setPitchLFO:(id)sender{
     [player.osc setPitchLFO_freq:pitchLFOFrequencySlider.floatValue amp:pitchLFOAmplitudeSlider.floatValue];
+}
+
+-(IBAction)setAmplitudeLFO:(id)sender{
+}
+-(IBAction)setFilterLFO:(id)sender{
+    
 }
 
 // midiノート番号から周波数を求める
@@ -194,3 +203,4 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 @end
+

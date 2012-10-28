@@ -31,9 +31,6 @@
     
     IBOutlet NSSlider *frequencySlider;
     
-    IBOutlet NSSlider *pitchLFOFrequencySlider;
-    IBOutlet NSSlider *pitchLFOAmplitudeSlider;
-    
     IBOutlet NSMatrix *filterRadioGroup;
     IBOutlet NSSlider *filterFrequencySlider;
     IBOutlet NSSlider *filterQSlider;
@@ -48,6 +45,14 @@
     IBOutlet NSSlider *ampADSRDecayTime;
     IBOutlet NSSlider *ampADSRSustainTime;
     IBOutlet NSSlider *ampADSRReleaseTime;
+    
+    //LFO
+    IBOutlet NSSlider *pitchLFOFrequencySlider;
+    IBOutlet NSSlider *pitchLFOAmplitudeSlider;
+    IBOutlet NSSlider *amplitudeLFOFrequencySlider;
+    IBOutlet NSSlider *amplitudeLFOAmplitudeSlider;
+    IBOutlet NSSlider *filterLFOFrequencySlider;
+    IBOutlet NSSlider *filterLFOAmplitudeSlider;
 }
 
 -(id) init;
@@ -60,6 +65,8 @@
 -(IBAction)setVolume:(id)sender;
 -(IBAction)updateAmpADSRView:(id)sender;
 -(IBAction)setPitchLFO:(id)sender;
+-(IBAction)setAmplitudeLFO:(id)sender;
+-(IBAction)setFilterLFO:(id)sender;
 - (double)getFreqWithMIDI:(int)_note;
 
 @end
