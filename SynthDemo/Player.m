@@ -9,7 +9,7 @@
 #import "Player.h"
 
 @implementation Player
-@synthesize volume, mPlaying, osc, filter, ampADSR, pitchLFO;
+@synthesize volume, mPlaying, osc, filter, ampADSR, pitchLFO, effectDelay;
 
 
 static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef outQB) {
@@ -28,6 +28,9 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
             if(player.mPlaying){
                 outputValue = [player.osc get] * 32767.0f;
                 // outputValue = [player->filter get:outputValue];
+                
+                // effect
+                outputValue = [player.effectDelay get:outputValue];
                 
                 // volume + guard
                 outputValue *= player.volume;
@@ -81,6 +84,7 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
     mPlaying = NO;
     volume = 0.8f;
     
+    effectDelay = [[EffectDelay alloc] init];
     
     // AudioUnitの初期化
     NSLog(@"Player Audiounit initialize");

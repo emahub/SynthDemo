@@ -53,6 +53,11 @@
     IBOutlet NSSlider *amplitudeLFOAmplitudeSlider;
     IBOutlet NSSlider *filterLFOFrequencySlider;
     IBOutlet NSSlider *filterLFOAmplitudeSlider;
+    
+    //Effect
+    IBOutlet NSSlider *delayTimeSlider;
+    IBOutlet NSSlider *delayWetSlider;
+    IBOutlet NSSlider *delayFeedbackSlider;
 }
 
 -(id) init;
@@ -67,6 +72,8 @@
 -(IBAction)setPitchLFO:(id)sender;
 -(IBAction)setAmplitudeLFO:(id)sender;
 -(IBAction)setFilterLFO:(id)sender;
+-(IBAction)setDelayTime:(id)sender;
+-(IBAction)setDelayFeedbackAndWet:(id)sender;
 - (double)getFreqWithMIDI:(int)_note;
 
 @end

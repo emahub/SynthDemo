@@ -182,6 +182,15 @@ MIDIInputProc(const MIDIPacketList *pktlist,
     [player.osc setFilterLFO_freq:filterLFOFrequencySlider.floatValue amp:filterLFOAmplitudeSlider.floatValue];
 }
 
+-(IBAction)setDelayTime:(id)sender{
+    [player.effectDelay setTime:(int)(delayTimeSlider.floatValue * SAMPLING_FREQ)];
+}
+
+-(IBAction)setDelayFeedbackAndWet:(id)sender{
+    [player.effectDelay setFeedback:delayFeedbackSlider.floatValue];
+    [player.effectDelay setWet:delayWetSlider.floatValue];
+}
+
 // midiノート番号から周波数を求める
 -(double)getFreqWithMIDI:(int)_note{
     // A(69) = 440hzを利用

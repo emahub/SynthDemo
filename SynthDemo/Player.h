@@ -16,6 +16,7 @@
 #import "SawtoothGenerator.h"
 #import "WhitenoiseGenerator.h"
 #import "BiquadFilter.h"
+#import "EffectDelay.h"
 
 #define CHANNEL_NUM 2
 #define BITS sizeof(float) * 8 //32 // floatは4bytes = 32bits
@@ -43,6 +44,7 @@ AQCallbackStruct in;
     id<Generator> pitchLFO;
     id<Generator> amplitudeLFO;
     id<Generator> filterLFO;
+    EffectDelay *effectDelay;
 }
 
 @property(readwrite) BOOL mPlaying;
@@ -51,6 +53,7 @@ AQCallbackStruct in;
 @property(retain) BiquadFilter *filter;
 @property(retain) ADSR *ampADSR;
 @property(retain) id pitchLFO;
+@property(retain) EffectDelay *effectDelay;
 
 - (id)init:(id)delegate;
 - (void)dealloc;

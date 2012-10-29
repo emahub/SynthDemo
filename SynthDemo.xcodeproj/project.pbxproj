@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		857BC78E163E2B91008E80A2 /* EffectDelay.m in Sources */ = {isa = PBXBuildFile; fileRef = 857BC78D163E2B91008E80A2 /* EffectDelay.m */; };
 		85E18DD7163D11C3001DFF48 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85E18DD6163D11C3001DFF48 /* Cocoa.framework */; };
 		85E18DE1163D11C3001DFF48 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85E18DDF163D11C3001DFF48 /* InfoPlist.strings */; };
 		85E18DE3163D11C3001DFF48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E18DE2163D11C3001DFF48 /* main.m */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		857BC78C163E2B91008E80A2 /* EffectDelay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectDelay.h; sourceTree = "<group>"; };
+		857BC78D163E2B91008E80A2 /* EffectDelay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectDelay.m; sourceTree = "<group>"; };
 		85E18DD2163D11C3001DFF48 /* SynthDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SynthDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E18DD6163D11C3001DFF48 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		85E18DD9163D11C3001DFF48 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -187,6 +190,8 @@
 				85E18E41163D32DD001DFF48 /* ADSRNSView.h */,
 				85E18E42163D32DD001DFF48 /* ADSRNSView.m */,
 				85E18E44163D387A001DFF48 /* define.h */,
+				857BC78C163E2B91008E80A2 /* EffectDelay.h */,
+				857BC78D163E2B91008E80A2 /* EffectDelay.m */,
 			);
 			path = SynthDemo;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				85E18E2E163D13AF001DFF48 /* WhitenoiseGenerator.m in Sources */,
 				85E18E38163D161B001DFF48 /* PlayerController.m in Sources */,
 				85E18E43163D32DD001DFF48 /* ADSRNSView.m in Sources */,
+				857BC78E163E2B91008E80A2 /* EffectDelay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +532,7 @@
 				85E18E09163D11C4001DFF48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		85E18E0A163D11C4001DFF48 /* Build configuration list for PBXNativeTarget "SynthDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +541,7 @@
 				85E18E0C163D11C4001DFF48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
