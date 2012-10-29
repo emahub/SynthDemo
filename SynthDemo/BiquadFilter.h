@@ -32,5 +32,5 @@
 - (void) setpeakingEQ_f0:(float)_f0 Q:(float)_Q dBGain:(float)_dBGain;
 - (void) setlowShelf_f0:(float)_f0 Q:(float)_Q dBGain:(float)_dBGain;
 - (void) sethighShelf_f0:(float)_f0 Q:(float)_Q dBGain:(float)_dBGain;
-
+- (void) printStatus;
 @end

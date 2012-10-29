@@ -14,7 +14,7 @@
 - (id)init{
     self = [super init];
     type = 0;
-    cutoff = 440.0f;
+    cutoff = 10000.0f;
     q = 1.0f;
     dBGain = 0.0f;
     
@@ -127,5 +127,9 @@
     a0 =        (A+1) - (A-1)*cos(w0) + 2*sqrt(A)*alpha;
     a1 =    2*( (A-1) - (A+1)*cos(w0)                   );
     a2 =        (A+1) - (A-1)*cos(w0) - 2*sqrt(A)*alpha;
+}
+
+- (void) printStatus{
+    NSLog(@"Biquad filter status- type:%d cutoff:%.2f q:%.2f dBGain:%.2f", type, cutoff, q, dBGain);
 }
 @end

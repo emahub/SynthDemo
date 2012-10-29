@@ -63,7 +63,7 @@ static void AQBufferCallback(void *in, AudioQueueRef inQ, AudioQueueBufferRef ou
     NSLog(@"Player init initialize value");
     
     filter = [[BiquadFilter alloc] init];
-    [filter setLPF_f0:600.0f Q:1.0f];
+    [filter setLPF_f0:10000.0f Q:1.0f];
     
     ampADSR = [[ADSR alloc] init];
     

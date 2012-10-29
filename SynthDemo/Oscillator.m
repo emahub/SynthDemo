@@ -23,6 +23,8 @@
         amplitudeLFO = _amplitudeLFO;
         filterLFO = _filterLFO;
         
+        cutoff = filter.cutoff;
+        
         pitchbend = 1;
     }
     

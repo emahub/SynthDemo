@@ -144,7 +144,6 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 }
 
 - (IBAction)setFilter:(id)sender{
-
     [player.osc setFilter_type:(int)filterRadioGroup.selectedRow
                         cutoff:filterFrequencySlider.floatValue
                              Q:filterQSlider.floatValue
