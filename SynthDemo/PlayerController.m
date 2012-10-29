@@ -37,7 +37,11 @@ MIDIInputProc(const MIDIPacketList *pktlist,
         } else if (mes == 0xB0) {
             NSLog(@"cc number = %2.2x / data = %2.2x / ch = %2.2x",
                   packet->data[1], packet->data[2], ch);
-        } /*else {
+        } else if (mes == 0xE0) {
+            NSLog(@"pitchbend = %2.2x / data = %2.2x / ch = %2.2x",
+                  packet->data[1], packet->data[2], ch);
+            [player.osc setPitchbend:1.0f + packet->data[1] / 127.0f];
+        }/*else {
            NSLog(@"etc");
            }*/
         
@@ -141,8 +145,10 @@ MIDIInputProc(const MIDIPacketList *pktlist,
 
 - (IBAction)setFilter:(id)sender{
 
-    [player.osc setFilter_type:(int)filterRadioGroup.selectedRow cutoff:filterFrequencySlider.floatValue
-                             Q:filterQSlider.floatValue  dBGain:filterdBGainSlider.floatValue];
+    [player.osc setFilter_type:(int)filterRadioGroup.selectedRow
+                        cutoff:filterFrequencySlider.floatValue
+                             Q:filterQSlider.floatValue
+                        dBGain:filterdBGainSlider.floatValue];
 }
 
 -(IBAction)setFrequency:(id)sender{

@@ -17,6 +17,7 @@
     BiquadFilter *filter;
     
     float freq;
+    float pitchbend;
     id<Generator> pitchLFO;
     id<Generator> amplitudeLFO;
     float cutoff;
@@ -32,6 +33,7 @@
 -(void)oscNoteOn:(float)_freq;
 -(void)oscNoteOff:(float)_freq;
 -(void)setFreq:(float)_freq;
+-(void)setPitchbend:(float)_pitchbend;
 -(void)setFilter_type:(int)_type cutoff:(float)_cutoff Q:(float)_q dBGain:(float)_dbgain;
 
 -(void)setPitchLFO_freq:(float)_freq amp:(float)_amp;

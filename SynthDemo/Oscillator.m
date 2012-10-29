@@ -22,6 +22,8 @@
         pitchLFO = _pitchLFO;
         amplitudeLFO = _amplitudeLFO;
         filterLFO = _filterLFO;
+        
+        pitchbend = 1;
     }
     
     return self;
@@ -29,7 +31,7 @@
 
 - (float)get
 {
-    [gen setFreq:freq + [pitchLFO get]];
+    [gen setFreq:freq * pitchbend + [pitchLFO get]];
     float outputValue = [gen get] * [ampADSR get] * (0.5f + [amplitudeLFO get] * 0.5f);
     
     [filter setCutoff:cutoff + [filterLFO get]];
@@ -63,6 +65,11 @@
 -(void)setFreq:(float)_freq
 {
     freq = _freq;
+}
+
+-(void)setPitchbend:(float)_pitchbend
+{
+    pitchbend = _pitchbend;
 }
 
 -(void)setFilter_type:(int)_type cutoff:(float)_cutoff Q:(float)_q dBGain:(float)_dbgain
