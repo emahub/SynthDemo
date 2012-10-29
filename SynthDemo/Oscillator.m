@@ -32,11 +32,13 @@
 - (float)get
 {
     [gen setFreq:freq * pitchbend + [pitchLFO get]];
-    float outputValue = [gen get] * [ampADSR get] * (0.5f + [amplitudeLFO get] * 0.5f);
+    float outputValue = [gen get];
     
     [filter setCutoff:cutoff + [filterLFO get]];
-    
     outputValue = [filter get:outputValue];
+    
+    outputValue = outputValue * [ampADSR get] * (0.5f + [amplitudeLFO get] * 0.5f);
+    
     
     return outputValue;
 }

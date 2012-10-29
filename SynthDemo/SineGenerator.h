@@ -13,6 +13,7 @@
 @interface SineGenerator : NSObject<Generator>{
     float radius;
     float frequency;
+    //float now_frequency;
     float amplitude;
 }
 -(id) init;
