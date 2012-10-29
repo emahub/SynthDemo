@@ -58,6 +58,8 @@
     nowFreq = _freq;
     freq = _freq;
     //[gen setFreq:_freq];
+    
+    [ampADSR printStatus];
     [ampADSR noteOn];
 }
 
