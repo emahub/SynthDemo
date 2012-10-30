@@ -38,9 +38,11 @@ MIDIInputProc(const MIDIPacketList *pktlist,
             NSLog(@"cc number = %2.2x / data = %2.2x / ch = %2.2x",
                   packet->data[1], packet->data[2], ch);
         } else if (mes == 0xE0) {
-            NSLog(@"pitchbend = %2.2x / data = %2.2x / ch = %2.2x",
+            NSLog(@"pitchbend = %d / data = %d / ch = %d",
                   packet->data[1], packet->data[2], ch);
-            [player.osc setPitchbend:1.0f + packet->data[1] / 127.0f];
+            //[player.osc setPitchbend:1.0f + packet->data[1] / 127.0f];
+            int key = 2;    // 長二度
+            [player.osc setPitchbend:pow(2, packet->data[1]*key/12.0f/127.0f)];
         }/*else {
            NSLog(@"etc");
            }*/
